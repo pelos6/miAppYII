@@ -4,10 +4,14 @@ class RandomTable{
     public $IDr = 0 ;
     //Función que crea y devuelve un objeto de conexión a la base de datos y chequea el estado de la misma. 
     function conectarBD(){ 
-            $server = "localhost";
+           $server = "localhost";
             $usuario = "root";
             $pass = "javier";
             $BD = "javier";
+        /*    $server = "localhost";
+            $usuario = "u552036743_carpe";
+            $pass = "javier";
+            $BD = "u552036743_carpe";*/
             //variable que guarda la conexión de la base de datos
             $conexion = mysqli_connect($server, $usuario, $pass, $BD); 
             //Comprobamos si la conexión ha tenido exito

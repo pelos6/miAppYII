@@ -39,9 +39,9 @@ class PesoController extends Controller {
         ]);
     }
 
-    /**
+    /*
       ejemplo mio
-     */
+       */
     public function actionPesado() {
         //return $this->render('pesado');
         // $id = '2015-07-26';
@@ -56,16 +56,15 @@ class PesoController extends Controller {
 
     /**
      * Creates a new Peso model.
-     * If creation is successful, the browser will be redirected to the 'view
-
-      ' page.
+     * If creation is successful, the browser will be redirected to the 'view page.
      * @return mixed
      */
     public function actionCreate() {
         $model = new Peso();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->fecha]);
+            return $this->redirect(['index']);
+           // return $this->redirect(['view', 'id' => $model->fecha]);
         } else {
             return $this->render('create', [
                         'model' => $model,
@@ -75,9 +74,7 @@ class PesoController extends Controller {
 
     /**
      * Updates an existing Peso model.
-     * If update is successful, the browser will be redirected to the 'view
-
-      ' page.
+     * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
      */
@@ -96,9 +93,7 @@ class PesoController extends Controller {
 
     /**
      * Deletes an existing Peso model.
-     * If deletion is successful, the browser will be redirected to the 'index
-
-      ' page.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
      */
