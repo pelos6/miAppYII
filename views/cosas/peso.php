@@ -26,7 +26,7 @@
             $date = new DateTime($time);
             //ALMACENAMOS EL TIMESTAMP EN EL ARRAY
             $timeArray[$i] = $date->getTimestamp() * 1000;
-            error_log('DEBUG: PESO ' . $valoresArray[$i] . ' ' . $timeArray[$i]);
+          //  error_log('DEBUG: PESO ' . $valoresArray[$i] . ' ' . $timeArray[$i]);
         }
         ?>
         <div id="contenedor"></div>

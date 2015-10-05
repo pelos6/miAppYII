@@ -38,7 +38,16 @@ AppAsset::register($this);
                     ['label' => 'Home', 'url' => ['/site/index']],
                     ['label' => 'About', 'url' => ['/site/about']],
                     ['label' => 'Contact', 'url' => ['/site/contact']],
-                    ['label' => 'Pesado', 'url' => ['/peso/pesado']],
+                    ['label' => 'GraficaPesos', 'url' => ['/peso/grafica']],
+                    Yii::$app->user->isGuest ?
+                            ['label' => 'Visitas', 'url' => ['/site/visitas'], 'visible' => false] :
+                            ['label' => 'Visitas', 'url' => ['/site/visitas'], 'visible' => true],
+                    Yii::$app->user->isGuest ?
+                            ['label' => 'Pesado', 'url' => ['/peso/pesado'], 'visible' => false] :
+                            ['label' => 'Pesado', 'url' => ['/peso/pesado'], 'visible' => true],
+                    Yii::$app->user->isGuest ?
+                            ['label' => 'Marcadores', 'url' => ['/marcadoresimportados/index'], 'visible' => false] :
+                            ['label' => 'Marcadores', 'url' => ['/marcadoresimportados/index'], 'visible' => true],
                     Yii::$app->user->isGuest ?
                             ['label' => 'Pesos', 'url' => ['/peso/index'], 'visible' => false] :
                             ['label' => 'Pesos', 'url' => ['/peso/index'], 'visible' => true],

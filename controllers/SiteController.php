@@ -92,8 +92,27 @@ class SiteController extends Controller
         return $this->render('about');
     }
     
-        public function actionEjemplo()
+    public function actionEjemplo()
     {
         return $this->render('ejemplo');
     }
+
+    public function actionVisitas($excel = NULL) {
+   $sql = Yii::$app->db->createCommand('
+      SELECT DISTINCT MONTH(hora) as mes, count(*) as total 
+      FROM visitas
+      WHERE YEAR(hora)=YEAR(CURDATE())
+      GROUP BY MONTH(hora)')->queryAll();
+ 
+       $mes = array();
+       $total = array();
+ 
+       for ($i = 0; $i < sizeof($sql); $i++) {
+           $mes[] = $sql[$i]["mes"];
+           $total[] = (int) $sql[$i]["total"];
+       }
+        //return $this->render('ejemplo');
+        return $this->render('visitas', array('mes' => $mes, 'total' => $total));
+       //$this->render('ejemplo', array('mes' => $mes, 'total' => $total));
+   }
 }

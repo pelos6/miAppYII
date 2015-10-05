@@ -61,6 +61,7 @@ class PesoController extends Controller {
      */
     public function actionCreate() {
         $model = new Peso();
+        $model->fecha = date("Y-m-d");  //'1960-01-12';
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -102,6 +103,25 @@ class PesoController extends Controller {
 
         return $this->redirect(['index']);
     }
+  /**
+     * Show a chart with the weight of the author .
+     */
+    public function actionGrafica()  {
+        error_log('DEBUG: en actionGrafica');
+          $sql = Yii::$app->db->createCommand('SELECT fecha , peso  FROM peso;')->queryAll();
+ 
+       $fecha = array();
+       $peso = array();
+ 
+       for ($i = 0; $i < sizeof($sql); $i++) {
+           $fecha[] = $sql[$i]["fecha"];
+           //$peso[] = $sql[$i]["peso"];
+           $peso[] = (double) $sql[$i]["peso"];
+       }
+        return $this->render('grafica', array('fecha' => $fecha, 'peso' => $peso));
+    }
+
+
 
     /**
      * Finds the Peso model based on its primary key value.

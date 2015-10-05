@@ -17,8 +17,8 @@ class Peso extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'PESO';
-       // return 'peso';
+       // return 'PESO';
+        return 'peso';
     }
 
     /**

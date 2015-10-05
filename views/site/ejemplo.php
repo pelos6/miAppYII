@@ -1,6 +1,5 @@
 <?php
 use miloschuman\highcharts\Highcharts;
-
 echo Highcharts::widget([
    'options' => [
       'title' => ['text' => 'Fruit Consumption'],
